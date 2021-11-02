@@ -1,0 +1,18 @@
+﻿@model Food
+
+<h1>Edit</h1>
+
+<form method="post" asp-action="Edit" asp-controller="Food">
+    <div asp-validation-summary="All"></div>
+    <input type ="hidden" asp-for="Id"/>
+    <label>Name</label>
+    <input class="form-control" name="Name" value="@Model.Name" />
+    <span asp-validation-for="Name"></span>
+    <br />
+    <label>Price</label>
+    <input class="form-control" name="Price" value="@Model.Price" />
+    <span asp-validation-for="Price"></span>
+    <br/>
+    <input class="btn btn-success" type ="submit" title="Save" value="Save"/>
+    <a class="btn" asp-controller="Food" asp-action="Index">Back</a>
+</form>

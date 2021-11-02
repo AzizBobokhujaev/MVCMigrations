@@ -1,0 +1,46 @@
+﻿
+@using System.Threading
+@model List<Food>
+
+It is Mini Online Store
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>AddedAt</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var food in Model)
+        {
+            <tr>
+                <td>
+                    @food.Id
+                </td>
+                <td>
+                    @food.Name
+                </td>
+                <td>
+                    @food.Price
+
+                </td>
+                <td>
+                    @food.AddedAt.ToString("hh:mm:ss dd:MM:yyyy")
+                </td>
+                <td>
+                    <a class="btn btn-info" href="~/Food/Edit?id=@food.Id">Edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="~/Food/Delete?id=@food.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+
+<a class="btn btn-primary" asp-controller="Food" asp-action="Create">Create</a>
+
